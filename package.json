@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "build:sw": "tsc -p tsconfig.sw.json",
+    "dev": "yarn build:sw && vite",
+    "build": "yarn build:sw && tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "yarn build:sw && vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
